@@ -1,50 +1,69 @@
 //import 라이브러리
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/main.css';
 
 const Main  = () => {
     /*---라우터 관련-------------------------------*/
     /*---상태관리 변수들(값이 변화면 화면 랜더링 )---*/
+    const [token, setToken] = useState(localStorage.getItem('token'));
+    const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
+    console.log(authUser);
     /*---일반 변수--------------------------------*/
     /*---일반 메소드 -----------------------------*/
     /*---훅(useEffect)+이벤트(handle)메소드-------*/
+    const handleLogout = ()=>{
+        console.log('로그아웃');
+
+        //로컬스토리지에 token 삭제
+        localStorage.removeItem('token');
+        //로컬스토리지에 authUser 삭제
+        localStorage.removeItem('authUser');
+        
+        //화면반영을 위한 상태값 변경
+        setToken(null);
+        setAuthUser(null);
+        
+    };
     return (
         <>
             <div id="wrap">
 
-                <div id="header" class="clearfix">
+                <div id="header" className="clearfix">
                     <h1>
                         <Link to="">MySite</Link>
                     </h1>
 
-                    {/* <!-- 
-                    <ul>
-                        <li>황일영 님 안녕하세요^^</li>
-                        <li><a href="" class="btn_s">로그아웃</a></li>
-                        <li><a href="" class="btn_s">회원정보수정</a></li>
-                    </ul>
-                    -->	 */}
-                    <ul>
-                        <li><Link to="" class="btn_s">로그인</Link></li>
-                        <li><Link to="" class="btn_s">회원가입</Link></li>
-                    </ul>
+                    {
+                        (token !== null)?(
+                            <ul>
+                                <li>{authUser.userName} 님 안녕하세요^^</li>
+                                <li><button className="btn_s" onClick={handleLogout}>로그아웃</button></li>
+                                <li><Link to="" className="btn_s" rel="noreferrer noopener">회원정보수정</Link></li>
+                            </ul>
+                        ):(
+                            <ul>
+                                <li><Link to="/user/loginform" className="btn_s" rel="noreferrer noopener">로그인</Link></li>
+                                <li><Link to="" className="btn_s" rel="noreferrer noopener">회원가입</Link></li>
+                            </ul>
+                        ) 
+                    }
                     
                 </div>
                 {/* <!-- //header --> */}
 
                 <div id="nav">
-                    <ul class="clearfix">
+                    <ul className="clearfix">
                         <li><Link to="">입사지원서</Link></li>
                         <li><Link to="">게시판</Link></li>
-                        <li><aLink to="">갤러리</aLink></li>
+                        <li><Link to="">갤러리</Link></li>
                         <li><Link to="">방명록</Link></li>
                     </ul>
                 </div>
                 {/* <!-- //nav --> */}
 
 
-                <div id="container" class="clearfix">
+                <div id="container" className="clearfix">
                     {/* <!-- aside 없음 --> */}
                     <div id="full-content">
                     
@@ -54,8 +73,8 @@ const Main  = () => {
                             <img id="profile-img" src="./images/profile.jpg" alt = "프로필 사진"/>
                             
                             <div id="greetings">
-                                <p class="text-xlarge">
-                                    <span class="bold">안녕하세요!!<br/>
+                                <p className="text-xlarge">
+                                    <span className="bold">안녕하세요!!<br/>
                                     김유찬의 MySite에 오신 것을 환영합니다.<br/>
                                     <br/>
                                     이 사이트는 웹 프로그램밍 실습과제 예제 사이트입니다.<br/>
@@ -69,12 +88,12 @@ const Main  = () => {
                                     <br/>
                                     (자유롭게 꾸며보세요!!)<br/>
                                     <br/><br/>
-                                    <Link class="" to="">[방명록에 글 남기기]</Link>
+                                    <Link className="" to="">[방명록에 글 남기기]</Link>
                                 </p>	
                             </div>
                             {/* <!-- //greetings --> */}
                             
-                            <div class="clear"></div>
+                            <div className="clear"></div>
                             
                         </div>
                         {/* <!-- //index --> */}

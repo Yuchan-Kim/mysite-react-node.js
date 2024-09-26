@@ -44,7 +44,7 @@ const JoinForm  = () => {
 
         axios({
             method: 'post',
-            url: 'http://localhost:9000/api/users',
+            url: 'http://localhost:9000/api/users/registration',
             data: userVo,
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8'
