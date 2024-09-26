@@ -37,7 +37,7 @@ const Header = () => {
                         ):(
                             <ul>
                                 <li><Link to="/user/loginform" className="btn_s" rel="noreferrer noopener">로그인</Link></li>
-                                <li><Link to="" className="btn_s" rel="noreferrer noopener">회원가입</Link></li>
+                                <li><Link to="/user/joinform" className="btn_s" rel="noreferrer noopener">회원가입</Link></li>
                             </ul>
                         ) 
                     }
