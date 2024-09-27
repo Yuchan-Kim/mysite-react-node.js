@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/user.css';
+import Footer from '../include/Footer';
+import Header from '../include/Header';
 
 const JoinOk  = () => {
     /*---라우터 관련-------------------------------*/
@@ -13,35 +15,9 @@ const JoinOk  = () => {
         <>
             <div id="wrap">
 
-                <div id="header" className="clearfix">
-                    <h1>
-                        <Link to="">MySite</Link>
-                    </h1>
-
-                    {/* <!-- 
-                    <ul>
-                        <li>황일영 님 안녕하세요^^</li>
-                        <li><a href="" class="btn_s">로그아웃</a></li>
-                        <li><a href="" class="btn_s">회원정보수정</a></li>
-                    </ul>
-                    -->	 */}
-                    <ul>
-                        <li><Link to="" className="btn_s">로그인</Link></li>
-                        <li><Link to="" className="btn_s">회원가입</Link></li>
-                    </ul>
-                    
-                </div>
-                {/* <!-- //header --> */}
-
-                <div id="nav">
-                    <ul className="clearfix">
-                        <li><Link to="">입사지원서</Link></li>
-                        <li><Link to="">게시판</Link></li>
-                        <li><Link to="">갤러리</Link></li>
-                        <li><Link to="">방명록</Link></li>
-                    </ul>
-                </div>
-                {/* <!-- //nav --> */}
+                {/* <!-- header + nav --> */}
+                <Header/>
+                {/* <!-- header + nav --> */}
 
                 <div id="container" class="clearfix">
                     <div id="aside">
