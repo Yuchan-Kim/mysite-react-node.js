@@ -33,7 +33,7 @@ const Form = () => {
         // 서버로 데이터 전송(저장)
         axios({
             method: 'post',             // put, post, delete                   
-            url: 'http://localhost:9000/api/attaches',
+            url: `${process.env.REACT_APP_API_URL}/api/attaches`,
             headers: { "Content-Type": "multipart/form-data" },  // post put
             data: formData,     // put, post,  JSON(자동변환)
         }).then(response => {

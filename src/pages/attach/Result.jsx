@@ -46,7 +46,7 @@ const Result = () => {
                         <div id="file">
                             
                                 <div>
-                                    <img id="resultImg" src={`http://localhost:9000/upload/${img}`} alt = "이미지"/>
+                                    <img id="resultImg" src={`${process.env.REACT_APP_API_URL}/upload/${img}`} alt = "이미지"/>
                                 </div>
                                 <p>
                                     <Link id="btnUpload" to="">다시 업로드 하기</Link>

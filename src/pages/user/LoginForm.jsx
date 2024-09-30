@@ -37,7 +37,7 @@ const LoginForm = () => {
         //로그인 로직
         axios({
             method: 'post',
-            url: 'http://localhost:9000/api/users/login',
+            url: `${process.env.REACT_APP_API_URL}/api/users/login`,
             data: userVo,
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8'
