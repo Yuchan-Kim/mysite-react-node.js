@@ -24,7 +24,7 @@ const Header = () => {
         <>
                 <div id="header" className="clearfix">
                     <h1>
-                        <Link to="">MySite</Link>
+                        <Link to="">MySite2</Link>
                     </h1>
 
                     {
